@@ -1,20 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { createRouter, Stack, Route } from 'expo-router';
+import HomeScreen from './HomeScreen';
+import MassageDetail from './MessageDetail';
 
-export default function App() {
+const Router = createRouter(() => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Stack>
+      <Route path="/" element={<HomeScreen />} />
+      <Route path="/massage/:type" element={<MassageDetail />} />
+    </Stack>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 });
+
+export default Router;
